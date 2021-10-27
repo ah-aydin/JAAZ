@@ -1,75 +1,18 @@
 <!DOCTYPE php>
 <php>
 
-<head>
-    <!--     Fonts and icons     -->
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
-    <link rel="icon" type="image/png" href="./assets/img/logo.png">
-    <title>Create account</title>
+    <head>
+		<?php include_once('templates/head.php')?>
+		<title>
+			Inputs
+		</title>
+	</head>
 
-    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no'
-        name='viewport' />
-    <!--     Fonts and icons     -->
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
-    <!-- CSS Files -->
-    <link href="./assets/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="./assets/css/paper-dashboard.css?v=2.0.1" rel="stylesheet" />
-    <!-- CSS Just for demo purpose, don't include it in your project -->
-    <link href="./assets/demo/demo.css" rel="stylesheet" />
-</head>
 
 <body lang="en">
     <div class="wrapper">
-        <div class="sidebar" data-color="white" data-active-color="danger">
-			<a href="index.php">
-				<div class="logo align-items-center justify-content-center">
-					<div class="logo-image-big">
-						<img src="./assets/img/logo.png">
-					</div>
-				</div>
-			</a>
-			<div class="sidebar-wrapper">
-				<ul class="nav">
-					<li class="nav-item">
-						<a href="index.php">
-							<p>Home</p>
-						</a>
-					</li>
-					<li class="nav-item">
-						<a href="profile.php">
-							<p>Profile</p>
-						</a>
-					</li>
-					<li class="nav-item">
-						<a href="game.php">
-							<p>Play game</p>
-						</a>
-					</li>
-					<li class="nav-item">
-						<a href="login.php">
-							<p>Login</p>
-						</a>
-					</li>
-					<li class="nav-item">
-						<a href="signup.php">
-							<p>Sign Up</p>
-						</a>
-					</li>
-					<li class="nav-item">
-						<a href="imprints.php">
-							<p>Imprints</p>
-						</a>
-					</li>
-					<li class="nav-item active">
-						<a href="inputs.php">
-							<p>Inputs Main Page</p>
-						</a>
-					</li>
-				</ul>
-			</div>
-		</div>
+        <?php include_once('templates/sidebar.php')?>
+
         <div class="main-panel" style="height: 100vh;">
             <!-- Navbar -->
             <nav class="navbar navbar-expand-lg navbar-absolute fixed-top navbar-transparent">
@@ -141,19 +84,10 @@
             </div>
         </div>
     </div>
-    <!--   Core JS Files   -->
-    <script src="./assets/js/core/jquery.min.js"></script>
-    <script src="./assets/js/core/popper.min.js"></script>
-    <script src="./assets/js/core/bootstrap.min.js"></script>
-    <script src="./assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
-    <!--  Google Maps Plugin    -->
-    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
-    <!-- Chart JS -->
-    <script src="./assets/js/plugins/chartjs.min.js"></script>
-    <!--  Notifications Plugin    -->
-    <script src="./assets/js/plugins/bootstrap-notify.js"></script>
-    <!-- Control Center for Now Ui Dashboard: parallax effects, scripts for the example pages etc -->
-    <script src="./assets/js/paper-dashboard.min.js?v=2.0.1" type="text/javascript"></script>
+        <?php include_once('templates/footer.php')?>
+		<script>
+			document.getElementById("inputs_link").classList.add("active");
+		</script>
 </body>
 
 </php>
