@@ -61,7 +61,7 @@ session_start();
                         </div>
                         <div class="row">
                             <div class="col-md-4">
-                                <a href="./forum.php">Forums view list (create comments)</a>
+                                <a href="./createcomment.php">Create comment</a>
                             </div>
                         </div>
                         <div class="row">
