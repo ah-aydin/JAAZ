@@ -13,6 +13,7 @@
         {
             $query = "SELECT * FROM Forums WHERE title='$title' LIMIT 1";
             $result = mysqli_query($con,$query);
+            // Forum with the given title exists, so we don't put it.
             if($result && mysqli_num_rows($result) > 0)
             {
                 $_SESSION['err'] = 'Could not create forum. Maybe dis title alread is taken';
@@ -20,13 +21,26 @@
             }
             else
             {
-                
+                $datecurrent = date("Y-m-d");
+                $user_id = $_SESSION['user_id'];
+                $query = "INSERT INTO Posts (body, publish_date, user_id) VALUES ('$forumtext', '$datecurrent',
+                        (SELECT user_id FROM Users WHERE user_id=$user_id))";
+                mysqli_query($con, $query);
+
+                $post_id = mysqli_insert_id($con);
+                $query = "INSERT INTO Forums (post_id, title) VALUES ((
+                        SELECT post_id FROM Posts WHERE post_id=$post_id LIMIT 1), '$title')
+                    ";
+                mysqli_query($con, $query);
+                $_SESSION['err'] = '';
+                $_SESSION['success'] = "Created forum $title";
             }
         }
     }
     else
     {
         $_SESSION['success'] = '';
+        $_SESSION['err'] = '';
     }
 ?>
 
@@ -53,7 +67,7 @@
                     <div class="row d-flex justify-content-center">
                         <div class="col-md-10">
                             <h3>Create forum</h3>
-                            <form action="">
+                            <form action="" method="POST">
                             <div class="row">
                                 <div class="col-md-4">
                                     <div class="form-group first">

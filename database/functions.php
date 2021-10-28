@@ -14,10 +14,8 @@ function check_login($con)
 		{
 
 			$user_data = mysqli_fetch_assoc($result);
-            echo "Found user";
 			return $user_data;
 		}
-        else echo "No user";
 	}
     
     //redirect to login
