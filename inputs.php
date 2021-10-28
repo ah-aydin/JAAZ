@@ -1,3 +1,11 @@
+<?php 
+session_start();
+	include("database/connection.php");
+	include("database/functions.php");
+
+	$user_data = check_login($con);
+?>
+
 <!DOCTYPE php>
 <php>
 
@@ -42,17 +50,17 @@
                     <div class="col-md-10">
                       <div class="row">
                           <div class="col-md-4">
-                              <a href="./signup.php">Sign up for Players</a>
+                              <a href="signup_pages/signup.php">Sign up for Players</a>
                           </div>
                       </div>
                       <div class="row">
                           <div class="col-md-4">
-                              <a href="./adminsignup.php">Sign up for Admin</a>
+                              <a href="signup_pages/adminsignup.php">Sign up for Admin</a>
                           </div>
                       </div>
                       <div class="row">
                           <div class="col-md-4">
-                              <a href="./moderatorsignup.php">Sign up for Moderator</a>
+                              <a href="signup_pages/moderatorsignup.php">Sign up for Moderator</a>
                           </div>
                       </div>
                         <div class="row">

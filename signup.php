@@ -1,3 +1,38 @@
+<?php 
+    session_start();
+    include("database/connection.php");
+    include("database/functions.php");
+
+    if ($_SERVER['REQUEST_METHOD'] == 'POST')
+    {
+        $name = $_POST['name'];
+        $username = $_POST['username'];
+        $password = $_POST['password'];
+        $re_password = $_POST['re_password'];
+
+        if ($password != $re_password)
+        {
+            $_SESSION['err'] = 'Da passwords do not match';
+            header("Location: signup.php");
+            die;
+        }
+        $_SESSION['err'] = '';
+        // Create user
+        $query = "INSERT INTO Users (name, username, password) VALUES ('$name','$username','$password')";
+        // Make it type of player
+        $query2 = "INSERT INTO Players (player_id, xp, high_score) VALUES ((
+                    SELECT user_id
+                    FROM Users
+                    WHERE username = '$username'
+                    LIMIT 1), 0, 0)";
+        mysqli_query($con, $query);
+        mysqli_query($con, $query2);
+
+        header("Location: login.php");
+        die;
+    }
+?>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -38,7 +73,7 @@
                 <div class="content">
                     <div class="row d-flex justify-content-center">
                         <div class="col-md-10">
-                            <form action="">
+                            <form action="" method="POST">
                                 <div class="row">
                                     <div class="col-md-4">
                                         <div class="form-group first">
@@ -61,7 +96,7 @@
                                     <div class="col-md-4">
                                         <div class="form-group first">
                                             <label for="password">Password</label>
-                                            <input class="form-control" type="password" name="name" placeholder="Password"
+                                            <input class="form-control" type="password" name="password" placeholder="Password"
                                                 id="password_input" required />
                                         </div>
                                     </div>
@@ -70,7 +105,7 @@
                                     <div class="col-md-4">
                                         <div class="form-group first">
                                             <label for="re_password">Re-enter Password</label>
-                                            <input class="form-control" type="re_password" name="name" placeholder="Re-enter password"
+                                            <input class="form-control" type="password" name="re_password" placeholder="Re-enter password"
                                                 id="re_password_input" required />
                                         </div>
                                     </div>
@@ -79,6 +114,16 @@
                                 <div class="row">
                                     <div class="col-md-4">
                                         <input type="submit" class="btn btn-primary" value="Submit" />
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <?php 
+                                            if(isset($_SESSION['err']))
+                                            {
+                                                echo $_SESSION['err'];
+                                            }
+                                        ?>
                                     </div>
                                 </div>
                         </div>

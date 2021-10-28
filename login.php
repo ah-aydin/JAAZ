@@ -40,6 +40,9 @@
                         <div class="col-md-10">
                             <form action="">
                                 <div class="row">
+                                    We created a default user of type player for you to test stuff. <br> Username: KebabDestroyer5000 <br> Password: plzgib10
+                                </div><br>
+                                <div class="row">
                                     <div class="col-md-4">
                                         <div class="form-group first">
                                             <label for="username">Username</label>

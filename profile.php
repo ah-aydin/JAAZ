@@ -12,6 +12,14 @@ Coded by www.creative-tim.com
 
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 -->
+<?php 
+session_start();
+	include("database/connection.php");
+	include("database/functions.php");
+
+	$user_data = check_login($con);
+?>
+
 <!doctype html>
 <html lang="en">
     <head>
