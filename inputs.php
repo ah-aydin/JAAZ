@@ -3,6 +3,7 @@
 
     <head>
 		<?php include_once('templates/head.php')?>
+    <?php $thispg="inputs"?>
 		<title>
 			Inputs
 		</title>
@@ -85,9 +86,6 @@
         </div>
     </div>
         <?php include_once('templates/footer.php')?>
-		<script>
-			document.getElementById("inputs_link").classList.add("active");
-		</script>
 </body>
 
 </php>

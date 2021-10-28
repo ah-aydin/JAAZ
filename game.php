@@ -16,6 +16,7 @@ Coded by www.creative-tim.com
 <html lang="en">
 	<head>
 		<?php include_once('templates/head.php')?>
+    <?php $thispg="game"?>
 		<title>
 			Very cool game
 		</title>
@@ -49,9 +50,6 @@ Coded by www.creative-tim.com
 			</div>
 		</div>
 		<?php include_once('templates/footer.php')?>
-		<script>
-			document.getElementById("game_link").classList.add("active");
-		</script>
 	</body>
 
 </html>

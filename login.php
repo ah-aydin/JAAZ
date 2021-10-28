@@ -2,6 +2,7 @@
 <html>
     <head>
 		<?php include_once('templates/head.php')?>
+    <?php $thispg="login"?>
 		<title>
 			Login
 		</title>
@@ -70,9 +71,6 @@
             </div>
         </div>
         <?php include_once('templates/footer.php')?>
-		<script>
-			document.getElementById("login_link").classList.add("active");
-		</script>
     </body>
 
 </html>

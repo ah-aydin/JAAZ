@@ -3,6 +3,7 @@
 
     <head>
 		<?php include_once('templates/head.php')?>
+    <?php $thispg="inputs"?>
 		<title>
 			Moderator  Sign Up
 		</title>

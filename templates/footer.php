@@ -1,3 +1,9 @@
+
+<?php global $thispg;?>
+<script>
+  document.getElementById("<?php echo $thispg;?>_link").classList.add("active");
+</script>
+
 <!--   Core JS Files   -->
 <script src="./assets/js/core/jquery.min.js"></script>
 <script src="./assets/js/core/popper.min.js"></script>

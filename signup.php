@@ -2,6 +2,7 @@
 <html>
     <head>
 		<?php include_once('templates/head.php')?>
+    <?php $thispg="signup"?>
 		<title>
 			Sign Up
 		</title>

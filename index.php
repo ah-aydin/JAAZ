@@ -16,6 +16,7 @@ Coded by www.creative-tim.com
 <html lang="en">
 	<head>
 		<?php include_once('templates/head.php')?>
+    <?php $thispg="index"?>
 		<title>
 			Home
 		</title>
@@ -61,9 +62,6 @@ Coded by www.creative-tim.com
 			</div>
 		</div>
 		<?php include_once('templates/footer.php')?>
-		<script>
-			document.getElementById("index_link").classList.add("active");
-		</script>
 	</body>
 
 </html>

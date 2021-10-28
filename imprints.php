@@ -17,6 +17,7 @@ Coded by www.creative-tim.com
 
 	<head>
 		<?php include_once('templates/head.php')?>
+    <?php $thispg="imprints"?>
 		<title>
 			Imprints
 		</title>
