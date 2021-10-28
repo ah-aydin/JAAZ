@@ -1,3 +1,44 @@
+<?php 
+
+    session_start();
+
+	include("database/connection.php");
+	include("database/functions.php");
+
+
+	if($_SERVER['REQUEST_METHOD'] == "POST")
+	{
+		//something was posted
+		$username = $_POST['username'];
+		$password = $_POST['password'];
+
+
+        //read from database
+        $query = "SELECT * FROM Users WHERE username = '$username' limit 1";
+        $result = mysqli_query($con, $query);
+
+        if($result)
+        {
+            if($result && mysqli_num_rows($result) > 0)
+            {
+
+                $user_data = mysqli_fetch_assoc($result);
+                
+                if($user_data['password'] === $password)
+                {
+
+                    $_SESSION['user_id'] = $user_data['user_id'];
+                    header("Location: index.php");
+                    die;
+                }
+            }
+        }
+        
+        echo "wrong username or password!";
+	}
+
+?>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -14,31 +55,12 @@
 
             <div class="main-panel" style="height: 100vh;">
                 <!-- Navbar -->
-                <nav class="navbar navbar-expand-lg navbar-absolute fixed-top navbar-transparent">
-                    <div class="container-fluid">
-                        <div class="navbar-wrapper">
-                            <div class="navbar-toggle">
-                                <button type="button" class="navbar-toggler">
-                                    <span class="navbar-toggler-bar bar1"></span>
-                                    <span class="navbar-toggler-bar bar2"></span>
-                                    <span class="navbar-toggler-bar bar3"></span>
-                                </button>
-                            </div>
-                            <div class="navbar-brand" href="javascript:;">Login</div>
-                        </div>
-                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation"
-                            aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
-                            <span class="navbar-toggler-bar navbar-kebab"></span>
-                            <span class="navbar-toggler-bar navbar-kebab"></span>
-                            <span class="navbar-toggler-bar navbar-kebab"></span>
-                        </button>
-                    </div>
-                </nav>
+				<?php include_once('templates/navbar.php')?>
                 <!-- End Navbar -->
                 <div class="content">
                     <div class="row d-flex justify-content-center">
                         <div class="col-md-10">
-                            <form action="">
+                            <form action="" method="POST">
                                 <div class="row">
                                     We created a default user of type player for you to test stuff. <br> Username: KebabDestroyer5000 <br> Password: plzgib10
                                 </div><br>
@@ -56,7 +78,7 @@
                                     <div class="col-md-4">
                                         <div class="form-group first">
                                             <label for="password">Password</label>
-                                            <input class="form-control" type="password" name="name" placeholder="Password"
+                                            <input class="form-control" type="password" name="password" placeholder="Password"
                                                 id="password_input" required />
                                         </div>
                                     </div>

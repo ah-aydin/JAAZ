@@ -38,9 +38,9 @@
 
     <head>
 		<?php include_once('templates/head.php')?>
-    <?php $thispg="inputs"?>
+    <?php $thispg="moderatorsignup"?>
 		<title>
-			Moderator  Sign Up
+			Moderator Sign Up
 		</title>
 	</head>
 
@@ -50,26 +50,7 @@
 
             <div class="main-panel" style="height: 100vh;">
                 <!-- Navbar -->
-                <nav class="navbar navbar-expand-lg navbar-absolute fixed-top navbar-transparent">
-                    <div class="container-fluid">
-                        <div class="navbar-wrapper">
-                            <div class="navbar-toggle">
-                                <button type="button" class="navbar-toggler">
-                                    <span class="navbar-toggler-bar bar1"></span>
-                                    <span class="navbar-toggler-bar bar2"></span>
-                                    <span class="navbar-toggler-bar bar3"></span>
-                                </button>
-                            </div>
-                            <div class="navbar-brand" href="javascript:;">Moderator Sign Up (dis is for da homework, normally we would just create them manually)</div>
-                        </div>
-                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation"
-                            aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
-                            <span class="navbar-toggler-bar navbar-kebab"></span>
-                            <span class="navbar-toggler-bar navbar-kebab"></span>
-                            <span class="navbar-toggler-bar navbar-kebab"></span>
-                        </button>
-                    </div>
-                </nav>
+				<?php include_once('templates/navbar.php')?>
                 <!-- End Navbar -->
                 <div class="content">
                     <div class="row d-flex justify-content-center">

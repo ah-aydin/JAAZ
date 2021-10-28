@@ -1,5 +1,6 @@
 <?php
 session_start();
+$username = $user_data['username'];
 ?>
 
 <div class="sidebar" data-color="white" data-active-color="danger">
@@ -34,6 +35,16 @@ session_start();
 					<li class='nav-item' id='inputs_link'>
 						<a href='inputs.php'>
 							<p>Other inputs</p>
+						</a>
+					</li>
+					<li class='nav-item' id='imprints_link'>
+						<a href='imprints.php'>
+							<p>Imprints</p>
+						</a>
+					</li>
+					<li class='nav-item' id='logout_link'>
+						<a href='logout.php'>
+							<p>Logout <b>$username</b></p>
 						</a>
 					</li>
 				</ul>";
