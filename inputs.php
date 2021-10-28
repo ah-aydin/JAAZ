@@ -29,19 +29,24 @@ session_start();
             <div class="content">
                 <div class="row d-flex justify-content-center">
                     <div class="col-md-10">
+                        <h3>
+                            These are here because the professor wanted them. But be aware, you can see this page only when you are logged in
+                            and if you try to access any of the signup views you will be redirected to the index page. If you want to test if these work
+                            you have to be logged out. And go from the sidebar to that view.
+                        </h3> 
                       <div class="row">
                           <div class="col-md-4">
-                              <a href="signup_pages/signup.php">Sign up for Players</a>
+                              <a href="signup.php">Sign up for Players</a>
                           </div>
                       </div>
                       <div class="row">
                           <div class="col-md-4">
-                              <a href="signup_pages/adminsignup.php">Sign up for Admin</a>
+                              <a href="adminsignup.php">Sign up for Admin</a>
                           </div>
                       </div>
                       <div class="row">
                           <div class="col-md-4">
-                              <a href="signup_pages/moderatorsignup.php">Sign up for Moderator</a>
+                              <a href="moderatorsignup.php">Sign up for Moderator</a>
                           </div>
                       </div>
                         <div class="row">

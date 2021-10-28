@@ -5,7 +5,6 @@
 	include("database/connection.php");
 	include("database/functions.php");
 
-
 	if($_SERVER['REQUEST_METHOD'] == "POST")
 	{
 		//something was posted

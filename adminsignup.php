@@ -2,6 +2,9 @@
     session_start();
     include("database/connection.php");
     include("database/functions.php");
+    
+    // If logged in, redirect to home page
+    check_guest();
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST')
     {

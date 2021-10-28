@@ -1,9 +1,33 @@
 <?php 
-session_start();
+    session_start();
 	include("database/connection.php");
 	include("database/functions.php");
 
 	$user_data = check_login($con);
+    if ($_SERVER['REQUEST_METHOD'] == 'POST')
+    {
+        $title = $_POST['title'];
+        $forumtext = $_POST['forumtext'];
+        $_SESSION['err'] = '';
+        if(!empty($title) && !empty($forumtext))
+        {
+            $query = "SELECT * FROM Forums WHERE title='$title' LIMIT 1";
+            $result = mysqli_query($con,$query);
+            if($result && mysqli_num_rows($result) > 0)
+            {
+                $_SESSION['err'] = 'Could not create forum. Maybe dis title alread is taken';
+                $_SESSION['success'] = '';
+            }
+            else
+            {
+                
+            }
+        }
+    }
+    else
+    {
+        $_SESSION['success'] = '';
+    }
 ?>
 
 <!DOCTYPE html>
@@ -28,6 +52,7 @@ session_start();
                 <div class="content">
                     <div class="row d-flex justify-content-center">
                         <div class="col-md-10">
+                            <h3>Create forum</h3>
                             <form action="">
                             <div class="row">
                                 <div class="col-md-4">
@@ -55,6 +80,12 @@ session_start();
                         </div>
                         </div>
                     </form>
+                    <div class="row">
+                        <?php echo $_SESSION['success'] ?>
+                    </div>
+                    <div class="row">
+                        <?php echo $_SESSION['err'] ?>
+                    </div>
                 </div>
             </div>
         </div>
