@@ -11,12 +11,43 @@
 								<th scope='col'>Username</th>
 								<th scope='col'>XP</th>
 								<th scope='col'>High Score</th>
+								<th scope='col'></th>
 							</tr>
 						</thead>
 						<tbody>";
 
 	if ($_SERVER['REQUEST_METHOD'] == "POST") {
 		$search_param = $_POST['search_param'];
+		$query = "select Users.user_id, Users.name, Users.username, Players.xp, Players.high_score 
+						FROM Users INNER JOIN Players ON Users.user_id=Players.player_id 
+						WHERE Users.username LIKE '%$search_param%' OR Users.name LIKE '%$search_param%';";
+
+		$result = mysqli_query($con, $query);
+
+		// Generate table html
+		while ($row = mysqli_fetch_array($result)) {
+			$player_id = $row['user_id'];
+			$name = $row['name'];
+			$username = $row['username'];
+			$xp = $row['xp'];
+			$high_score = $row['high_score'];
+
+			$loc_url = "detailview_player.php?id=$player_id";
+            $loc_on_click = "location.href='$loc_url';";
+            $loc_button = "<button class=\"btn btn-primary\" onclick=\"$loc_on_click\">View</button>";
+
+			$table_html .= "<tr>
+								<th>$player_id</th>
+								<td>$name</td>
+								<td>$username</td>
+								<td>$xp</td>
+								<td>$high_score</td>
+								<td>$loc_button</td>
+							</tr>";
+		}
+	}
+	else
+	{
 		$query = "select Users.user_id, Users.name, Users.username, Players.xp, Players.high_score 
 						FROM Users INNER JOIN Players ON Users.user_id=Players.player_id 
 						WHERE Users.username LIKE '%%' OR Users.name LIKE '%%';";
@@ -30,7 +61,19 @@
 			$username = $row['username'];
 			$xp = $row['xp'];
 			$high_score = $row['high_score'];
-			$table_html .= "<tr><th>$player_id</th><td>$name</td><td>$username</td><td>$xp</td><td>$high_score</td></tr>";
+
+			$loc_url = "detailview_player.php?id=$player_id";
+            $loc_on_click = "location.href='$loc_url';";
+            $loc_button = "<button class=\"btn btn-primary\" onclick=\"$loc_on_click\">View</button>";
+
+			$table_html .= "<tr>
+								<th>$player_id</th>
+								<td>$name</td>
+								<td>$username</td>
+								<td>$xp</td>
+								<td>$high_score</td>
+								<td>$loc_button</td>
+							</tr>";
 		}
 	}
 	$table_html .= "</tbody></table>";

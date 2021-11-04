@@ -38,3 +38,10 @@ function check_guest()
 function phpAlert($msg) {
     echo '<script type="text/javascript">alert("' . $msg . '")</script>';
 }
+
+function getIdFromUrl($url) {
+	$url_components = parse_url($url);
+    parse_str($url_components['query'], $params);
+    $id = $params['id'];
+	return $id;
+}

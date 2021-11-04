@@ -9,6 +9,7 @@
                             <th scope='col'>#</th>
                             <th scope='col'>Name</th>
                             <th scope='col'>Entry XP</th>
+                            <th scope='col'></th>
                         </tr>
                     </thead>
                     <tbody>";
@@ -24,7 +25,31 @@
             $level_id = $row['level_id'];
             $name = $row['name'];
             $entry_xp = $row['entry_xp'];
-            $table_html.="<tr><th>$level_id</th><td>$name</td><td>$entry_xp</td></tr>";
+
+            $loc_url = "detailview_level.php?id=$level_id";
+			$loc_on_click = "location.href='$loc_url';";
+			$loc_button = "<button class=\"btn btn-primary\" onclick=\"$loc_on_click\">View</button>";
+
+            $table_html.="<tr><th>$level_id</th><td>$name</td><td>$entry_xp</td><td>$loc_button</td></tr>";
+        }
+    }
+    else
+    {
+        $query = "SELECT * FROM Levels;";
+
+        $result = mysqli_query($con, $query);
+
+        while ($row = mysqli_fetch_array($result))
+        {
+            $level_id = $row['level_id'];
+            $name = $row['name'];
+            $entry_xp = $row['entry_xp'];
+
+            $loc_url = "detailview_level.php?id=$level_id";
+			$loc_on_click = "location.href='$loc_url';";
+			$loc_button = "<button class=\"btn btn-primary\" onclick=\"$loc_on_click\">View</button>";
+
+            $table_html.="<tr><th>$level_id</th><td>$name</td><td>$entry_xp</td><td>$loc_button</td></tr>";
         }
     }
     $table_html.="</tbody></table>";

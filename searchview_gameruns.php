@@ -11,6 +11,7 @@
 								<th scope='col'>Score</th>
 								<th scope='col'>Time</th>
 								<th scope='col'>Player Username</th>
+								<th scope='col'></th>
 							</tr>
 						</thead>
 						<tbody>";
@@ -27,12 +28,42 @@
 		while ($row = mysqli_fetch_array($result)) {
             $run_id = $row['run_id'];
             $table_html .= "<tr><th>$run_id</th>";
+
+			$loc_url = "detailview_gamerun.php?id=$run_id";
+			$loc_on_click = "location.href='$loc_url';";
+			$loc_button = "<button class=\"btn btn-primary\" onclick=\"$loc_on_click\">View</button>";
             foreach($row as $column => $value) {
                 if ($column === 'result' || $column === 'score' || $column === 'time' || $column === 'username')
                 {
                     $table_html .= "<td>$value</td>";
                 }
             }
+			$table_html .= "<td>$loc_button</td>";
+            $table_html .= "</tr>";
+		}
+	}
+	else
+	{
+		$query = "SELECT GameRuns.run_id, GameRuns.result, GameRuns.score, GameRuns.time, Users.username, Users.user_id 
+                    FROM Users INNER JOIN GameRuns ON Users.user_id=GameRuns.player_id;";
+
+		$result = mysqli_query($con, $query);
+
+		// Generate table html
+		while ($row = mysqli_fetch_array($result)) {
+            $run_id = $row['run_id'];
+            $table_html .= "<tr><th>$run_id</th>";
+			
+			$loc_url = "detailview_gamerun.php?id=$run_id";
+			$loc_on_click = "location.href='$loc_url';";
+			$loc_button = "<button class=\"btn btn-primary\" onclick=\"$loc_on_click\">View</button>";
+            foreach($row as $column => $value) {
+                if ($column === 'result' || $column === 'score' || $column === 'time' || $column === 'username')
+                {
+                    $table_html .= "<td>$value</td>";
+                }
+            }
+			$table_html .= "<td>$loc_button</td>";
             $table_html .= "</tr>";
 		}
 	}
