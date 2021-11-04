@@ -25,10 +25,6 @@
 	// Get game runs
 	$query = "SELECT * FROM GameRuns WHERE player_id=$user_id";
 	$result = mysqli_query($con, $query);
-	if (mysqli_num_rows($result) == 0) {
-		header("Location: index.php");
-		die;
-	}
 	
 	$gamerun_html = "<table class='table table-striped'>
 						<thead>
@@ -67,10 +63,6 @@
 	// Get forums
 	$query = "SELECT Posts.post_id, Forums.title, Forums.forum_id, Posts.body FROM Posts INNER JOIN Forums ON Forums.post_id=Posts.post_id WHERE Posts.user_id=$user_id;";
 	$result = mysqli_query($con, $query);
-	if (mysqli_num_rows($result) == 0) {
-		header("Location: index.php");
-		die;
-	}
 
 	$forums_html = "<table class='table table-striped'>
 						<thead>
