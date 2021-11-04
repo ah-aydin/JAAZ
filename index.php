@@ -36,7 +36,17 @@ session_start();
 			<div class="main-panel" style="height: 100vh;">
 				<!-- Navbar -->
 				<?php include_once('templates/navbar.php')?>
-			</div>
+        <div class="content">
+          <div class="row d-flex justify-content-center">
+            <div class="col-md-10"> 
+              <div class="row">
+                <div class="col-md-10">
+                    <a href="tablestuff.php">Tables</a>
+                </div>
+              </div>
+            </div>
+        </div>
+      </div>
 		</div>
 		<?php include_once('templates/footer.php')?>
 		<script>

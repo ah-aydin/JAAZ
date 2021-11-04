@@ -37,6 +37,11 @@ $username = $user_data['username'];
 							<p>Other inputs</p>
 						</a>
 					</li>
+					<li class='nav-item' id='table_link'>
+						<a href='tablestuff.php'>
+							<p>Tables</p>
+						</a>
+					</li>
 					<li class='nav-item' id='imprints_link'>
 						<a href='imprints.php'>
 							<p>Imprints</p>
