@@ -18,8 +18,8 @@ function check_login($con)
 		}
 	}
     
-    //redirect to login
-	header("Location: login.php");
+    // Redirect to login
+	header("Location: login.php?param=CIUCIU");
 	die;
 }
 

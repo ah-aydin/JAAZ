@@ -37,9 +37,24 @@ $username = $user_data['username'];
 							<p>Other inputs</p>
 						</a>
 					</li>
-					<li class='nav-item' id='table_link'>
-						<a href='tablestuff.php'>
-							<p>Tables</p>
+					<li class='nav-item' id='svforums_link'>
+						<a href='searchview_forums.php'>
+							<p>Search Forums</p>
+						</a>
+					</li>
+					<li class='nav-item' id='svplayers_link'>
+						<a href='searchview_players.php'>
+							<p>Search Players</p>
+						</a>
+					</li>
+					<li class='nav-item' id='svgameruns_link'>
+						<a href='searchview_gameruns.php'>
+							<p>Search Game Runs</p>
+						</a>
+					</li>
+					<li class='nav-item' id='svlevels_link'>
+						<a href='searchview_levels.php'>
+							<p>Search Levels</p>
 						</a>
 					</li>
 					<li class='nav-item' id='imprints_link'>
@@ -76,6 +91,26 @@ $username = $user_data['username'];
 					<li class='nav-item' id='moderatorsignup_link'>
 						<a href='moderatorsignup.php'>
 							<p>Moderator Sign Up</p>
+						</a>
+					</li>
+					<li class='nav-item' id='svforums_link'>
+						<a href='searchview_forums.php'>
+							<p>Search Forums</p>
+						</a>
+					</li>
+					<li class='nav-item' id='svplayers_link'>
+						<a href='searchview_players.php'>
+							<p>Search Players</p>
+						</a>
+					</li>
+					<li class='nav-item' id='svgameruns_link'>
+						<a href='searchview_gameruns.php'>
+							<p>Search Game Runs</p>
+						</a>
+					</li>
+					<li class='nav-item' id='svlevels_link'>
+						<a href='searchview_levels.php'>
+							<p>Search Levels</p>
 						</a>
 					</li>
 					<li class='nav-item' id='imprints_link'>

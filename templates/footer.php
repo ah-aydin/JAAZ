@@ -1,7 +1,9 @@
 
 <?php global $thispg;?>
 <script>
-  document.getElementById("<?php echo $thispg;?>_link").classList.add("active");
+  if (document.getElementById("<?php echo $thispg;?>_link")) {
+    document.getElementById("<?php echo $thispg;?>_link").classList.add("active");
+  }
   document.getElementById("navbar_text").innerHTML = "<?php echo ucfirst($thispg);?>";
 </script>
 

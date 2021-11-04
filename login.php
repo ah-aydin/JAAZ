@@ -5,12 +5,16 @@
 	include("database/connection.php");
 	include("database/functions.php");
 
+    // $url = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+    // $url_components = parse_url($url);
+    // parse_str($url_components['query'], $params);
+    // $param = $params['param'];
+
 	if($_SERVER['REQUEST_METHOD'] == "POST")
 	{
 		//something was posted
 		$username = $_POST['username'];
 		$password = $_POST['password'];
-
 
         //read from database
         $query = "SELECT * FROM Users WHERE username = '$username' limit 1";
