@@ -1,6 +1,6 @@
 <?php
     session_start();
-    include("database/connection.php");
+    include("database/connection_read_only.php");
     include("database/functions.php");
 
     $url = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]";
