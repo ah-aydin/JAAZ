@@ -5,6 +5,8 @@
 
     $url = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]";
 
+    $tag_array = array();
+
     $table_html = "<table class='table table-striped'>
                     <thead>
                         <tr>
@@ -63,8 +65,18 @@
                             <td>$publish_date</td>
                             <td>$loc_button</td>
                         </tr>";
+            
+            array_push($tag_array, $title);
         }
     }
+
+    $arr = array();
+	$rrr = array_unique($tag_array);
+	foreach($rrr as $value)
+	{
+		array_push($arr, $value);
+	}
+
     $table_html.="</tbody></table>";
 ?>
 
@@ -111,6 +123,12 @@
     </div>
     <?php include_once('templates/footer.php') ?>
     <script>
+        var js_array = <?php echo json_encode($arr); ?>;
+		
+		$("#search_players").autocomplete({
+            source: js_array
+        });
+
         if (document.getElementById("svforums_link")) {
             document.getElementById("svforums_link").classList.add("active");
         }

@@ -3,6 +3,8 @@
     include("database/connection_read_only.php");
     include("database/functions.php");
 
+    $tag_array = array();
+
     $table_html = "<table class='table table-striped'>
                     <thead>
                         <tr>
@@ -50,8 +52,19 @@
 			$loc_button = "<button class=\"btn btn-primary\" onclick=\"$loc_on_click\">View</button>";
 
             $table_html.="<tr><th>$level_id</th><td>$name</td><td>$entry_xp</td><td>$loc_button</td></tr>";
+
+
+            array_push($tag_array, $name);
         }
     }
+
+    $arr = array();
+	$rrr = array_unique($tag_array);
+	foreach($rrr as $value)
+	{
+		array_push($arr, $value);
+	}
+
     $table_html.="</tbody></table>";
 ?>
 
@@ -98,6 +111,12 @@
     </div>
 	<?php include_once('templates/footer.php') ?>
 	<script>
+        var js_array = <?php echo json_encode($arr); ?>;
+		
+		$("#search_players").autocomplete({
+            source: js_array
+        });
+        
 		if (document.getElementById("svlevels_link")) {
 			document.getElementById("svlevels_link").classList.add("active");
 		}

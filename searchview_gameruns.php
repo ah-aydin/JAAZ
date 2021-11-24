@@ -3,6 +3,8 @@
 	include("database/connection_read_only.php");
 	include("database/functions.php");
 
+	$tag_array = array();
+
 	$table_html = "<table class='table table-striped'>
 						<thead>
 							<tr>
@@ -62,11 +64,23 @@
                 {
                     $table_html .= "<td>$value</td>";
                 }
+				if ($column === 'result' || $column === 'username')
+				{
+					array_push($tag_array, $value);
+				}
             }
 			$table_html .= "<td>$loc_button</td>";
             $table_html .= "</tr>";
 		}
 	}
+
+	$arr = array();
+	$rrr = array_unique($tag_array);
+	foreach($rrr as $value)
+	{
+		array_push($arr, $value);
+	}
+
 	$table_html .= "</tbody></table>";
 ?>
 
@@ -113,6 +127,12 @@
 	</div>
 	<?php include_once('templates/footer.php') ?>
 	<script>
+        var js_array = <?php echo json_encode($arr); ?>;
+		
+		$("#search_players").autocomplete({
+            source: js_array
+        });
+
         if (document.getElementById("svgameruns_link")) {
             document.getElementById("svgameruns_link").classList.add("active");
         }

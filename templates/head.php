@@ -11,3 +11,7 @@
 <link href="./assets/css/bootstrap.min.css" rel="stylesheet" />
 <link href="./assets/css/paper-dashboard.css?v=2.0.1" rel="stylesheet" />
 <link href="./assets/css/home.css" rel="stylesheet" />
+
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
+<script src="//code.jquery.com/jquery-1.12.4.js"></script>
+<script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
