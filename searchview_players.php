@@ -76,9 +76,23 @@
 								<td>$high_score</td>
 								<td>$loc_button</td>
 							</tr>";
-			
-			array_push($tag_array, $username, $name);
 		}
+	}
+
+	$query = "select Users.user_id, Users.name, Users.username, Players.xp, Players.high_score 
+						FROM Users INNER JOIN Players ON Users.user_id=Players.player_id 
+						WHERE Users.username LIKE '%%' OR Users.name LIKE '%%';";
+
+	$result = mysqli_query($con, $query);
+
+	while ($row = mysqli_fetch_array($result)) {
+		$player_id = $row['user_id'];
+		$name = $row['name'];
+		$username = $row['username'];
+		$xp = $row['xp'];
+		$high_score = $row['high_score'];
+		
+		array_push($tag_array, $username, $name);
 	}
 
 	$arr = array();

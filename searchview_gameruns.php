@@ -74,6 +74,23 @@
 		}
 	}
 
+	$query = "SELECT GameRuns.run_id, GameRuns.result, GameRuns.score, GameRuns.time, Users.username, Users.user_id 
+				FROM Users INNER JOIN GameRuns ON Users.user_id=GameRuns.player_id;";
+
+	$result = mysqli_query($con, $query);
+
+	// Generate table html
+	while ($row = mysqli_fetch_array($result)) {
+		$run_id = $row['run_id'];
+
+		foreach($row as $column => $value) {
+			if ($column === 'result' || $column === 'username')
+			{
+				array_push($tag_array, $value);
+			}
+		}
+	}
+
 	$arr = array();
 	$rrr = array_unique($tag_array);
 	foreach($rrr as $value)

@@ -52,10 +52,20 @@
 			$loc_button = "<button class=\"btn btn-primary\" onclick=\"$loc_on_click\">View</button>";
 
             $table_html.="<tr><th>$level_id</th><td>$name</td><td>$entry_xp</td><td>$loc_button</td></tr>";
-
-
-            array_push($tag_array, $name);
         }
+    }
+
+    $query = "SELECT * FROM Levels;";
+
+    $result = mysqli_query($con, $query);
+
+    while ($row = mysqli_fetch_array($result))
+    {
+        $level_id = $row['level_id'];
+        $name = $row['name'];
+        $entry_xp = $row['entry_xp'];
+
+        array_push($tag_array, $name);
     }
 
     $arr = array();

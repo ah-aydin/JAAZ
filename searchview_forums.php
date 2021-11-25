@@ -65,9 +65,21 @@
                             <td>$publish_date</td>
                             <td>$loc_button</td>
                         </tr>";
-            
-            array_push($tag_array, $title);
         }
+    }
+
+    $query = "SELECT Forums.title, Forums.forum_id, Posts.publish_date 
+            FROM Posts INNER JOIN Forums ON Forums.post_id=Posts.post_id;";
+
+    $result = mysqli_query($con, $query);
+
+    while ($row = mysqli_fetch_array($result))
+    {
+        $title = $row['title'];
+        $forum_id = $row['forum_id'];
+        $publish_date = $row['publish_date'];
+        
+        array_push($tag_array, $title);
     }
 
     $arr = array();
