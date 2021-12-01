@@ -58,7 +58,7 @@ session_start();
         </div>
         <?php include_once('templates/footer.php') ?>
         <script>
-            document.getElementById("navbar_text").innerHTML = "Home";
+            document.getElementById("navbar_text").innerHTML = "Map";
         </script>
         <script>
             var ip;
