@@ -22,6 +22,11 @@ $username = $user_data['username'];
 							<p>Home</p>
 						</a>
 					</li>
+					<li class='nav-item' id='map_link'>
+						<a href='map.php'>
+							<p>Map</p>
+						</a>
+					</li>
 					<li class='nav-item' id='profile_link'>
 						<a href='profile.php'>
 							<p>Profile</p>
@@ -73,6 +78,11 @@ $username = $user_data['username'];
 			else
 			{
 				echo "<ul class='nav'>
+					<li class='nav-item' id='map_link'>
+						<a href='map.php'>
+							<p>Map</p>
+						</a>
+					</li>
 					<li class='nav-item' id='login_link'>
 						<a href='login.php'>
 							<p>Login</p>
